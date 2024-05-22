@@ -1,6 +1,6 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router';
 
-const ROUTE_NAME = 'pokemons'
+const ROUTE_NAME = 'pokemons';
 
 export const pokemonRoutes: RouteRecordRaw = {
   path: `/${ROUTE_NAME}`,
@@ -11,19 +11,25 @@ export const pokemonRoutes: RouteRecordRaw = {
       path: `/${ROUTE_NAME}/by/:id`,
       props: { title: 'Pokemon Por Id' },
       name: 'pokemon-id',
-      component: () => import('@/pokemons/pages/PokemonById.vue')
+      component: () => import('@/pokemons/pages/PokemonById.vue'),
     },
     {
       path: `/${ROUTE_NAME}/list`,
       props: { title: 'Listado' },
       name: 'pokemon-list',
-      component: () => import('@/pokemons/pages/PokemonList.vue')
+      component: () => import('@/pokemons/pages/PokemonList.vue'),
+    },
+    {
+      path: `/${ROUTE_NAME}/list-native`,
+      props: { title: 'Listado Nativo' },
+      name: 'pokemon-list-native',
+      component: () => import('@/pokemons/pages/PokemonListNative.vue'),
     },
     {
       path: `/${ROUTE_NAME}/search`,
       props: { title: 'Búsqueda' },
       name: 'pokemon-search',
-      component: () => import('@/pokemons/pages/PokemonSearch.vue')
-    }
-  ]
-}
+      component: () => import('@/pokemons/pages/PokemonSearch.vue'),
+    },
+  ],
+};
