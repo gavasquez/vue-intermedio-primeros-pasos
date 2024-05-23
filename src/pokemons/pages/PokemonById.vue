@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { usePokemon } from '../composables/usePokemon';
+import { useQueryClient } from '@tanstack/vue-query';
 
 const route = useRoute();
 
 const { id } = route.params;
 
+const queryClient = useQueryClient();
+
+const invalidQueries = () => {
+  queryClient.invalidateQueries({ queryKey: ['pokemon', id] });
+};
+
 const { isLoading, pokemon, isError, errorMessage } = usePokemon(id.toString());
 </script>
 <template>
+  <button @click="invalidQueries">Invalidar queries</button>
   <h1 v-if="isLoading">Loading...</h1>
   <h1 v-else-if="isError">Error: {{ errorMessage }}</h1>
   <div v-else-if="pokemon">

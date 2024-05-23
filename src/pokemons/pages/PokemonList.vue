@@ -20,7 +20,7 @@ const { count, isLoading, pokemons, isError, error } = usePokemons();
   </div>
 
   <div v-else>
-    <h1>Pokemon List- ({{ count }})</h1>
+    <h1>Pokemon List Native- ({{ count }})</h1>
     <PokemonCardList :pokemons="pokemons ?? []" />
   </div>
 </template>

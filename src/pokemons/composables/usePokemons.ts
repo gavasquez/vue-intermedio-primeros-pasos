@@ -1,6 +1,7 @@
 import { computed } from 'vue';
 import { getPokemons } from '../helpers/get-pokemons';
 import { useQuery } from '@tanstack/vue-query';
+import { initialPokemons } from '../data/initial-pokemons';
 
 export const usePokemons = () => {
   const {
@@ -12,6 +13,7 @@ export const usePokemons = () => {
     queryKey: ['pokemons'],
     queryFn: getPokemons,
     retry: 0,
+    initialData: initialPokemons,
   });
 
   return {
